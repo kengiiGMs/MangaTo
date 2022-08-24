@@ -31,6 +31,7 @@ class produtoDAO{
         $this->cadastrarFigura =$f;
     }
 
+
     public function cadastrarNvP(){
         $sql = 'insert into produto (codigo_produto, descricao, valor) values (?,?,?)';
 
@@ -47,6 +48,20 @@ class produtoDAO{
                 window.alert('Cadastrado com sucesso');
                 window.location.href='produto.php';
                 </script>";
+        }
+    }
+    public function deletarNvP(){
+        $sql1 = 'delete from produto where codigo_produto = ?';
+        $banco = new conexao();
+        $con = $banco->getConexao();
+        $resultado = $con->prepare($sql1);
+        $resultado->bindValue(1, $this->getCodProduto()); 
+        $final = $resultado->execute();
+        if($final){
+            echo "<script LANGUAGE='JavaScript'>
+            window.alert('Produto deletado com sucesso');
+            window.location.href='produto.php';
+            </script>";
         }
     }
 }

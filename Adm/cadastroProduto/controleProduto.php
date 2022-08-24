@@ -12,11 +12,10 @@ $novoProduto->setCodProduto($codProduto);
 $novoProduto->setDescricao($cadastrarDescricao);
 $novoProduto->setValor($cadastrarValor);
 
-
 if($botao=='cadastrar'){
         $novoProduto->cadastrarNvP();
-    }else{
-
+    }else if($botao=='deletar'){
+        $novoProduto->deletarNvP();
     }
 
 ?>
