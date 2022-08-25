@@ -1,0 +1,13 @@
+#linkMenuAdm {
+	color: rgba(0, 0, 0, 0.473);
+	transition: 0.3s;
+	padding-bottom: 10px;
+	border-style: none none solid none;
+	border-color: whitesmoke;
+}
+
+#linkMenuAdm:hover {
+	color: black;
+	border-style: none none solid none;
+	border-color: orange;
+}
