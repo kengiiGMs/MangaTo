@@ -14,8 +14,8 @@ $novaMensagem->setDataMensagem($dataMensagem);
 
 if($botao=='cadastrar'){
         $novaMensagem->cadastrarNvM();
-    }else{
-
+    }else if($botao=='deletar'){
+        $novaMensagem->DeletarNvM();
     }
 
 ?>

@@ -46,6 +46,7 @@
                         <th scope="col" style='text-align:center;'>assunto</th>
                         <th scope="col" style='text-align:center;'>obs </th>
                         <th scope="col" style='text-align:center;'>data</th>
+                        <th scope="col" style='text-align:center;'>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,6 +62,37 @@
                             echo "<td style='text-align:center;'>".$row['assunto']."</td>";
                             echo "<td style='text-align:center;'>".$row['obs']."</td>";
                             echo "<td style='text-align:center;'>".$row['dataMensagem']."</td>";
+                            echo "<td>
+                            <a class='btn btn-sm btn-danger'
+                            data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
+                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor'
+                                    class='bi bi-file-earmark-excel' viewBox='0 0 16 16'>
+                                    <path
+                                        d='M5.884 6.68a.5.5 0 1 0-.768.64L7.349 10l-2.233 2.68a.5.5 0 0 0 .768.64L8 10.781l2.116 2.54a.5.5 0 0 0 .768-.641L8.651 10l2.233-2.68a.5.5 0 0 0-.768-.64L8 9.219l-2.116-2.54z' />
+                                    <path
+                                        d='M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z' />
+                                </svg>
+                            </a>
+                            <div class='modal fade' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                            <div class='modal-dialog'>
+                                <div class='modal-content'>
+                                <div class='modal-header'>
+                                    <h5 class='modal-title' id='staticBackdropLabel'>Excluir Cesta</h5>
+                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                </div>
+                                <div class='modal-body'>
+                                <p>Deseja Realmente excluir está cesta?</p>
+                                </div>
+                                <div class='modal-footer'>
+                                    <button type='button' class='btn btn-warning' data-bs-dismiss='modal'>Cancelar</button>
+                                    <a class='btn btn-danger' href='mensagensDel.php?codigo_mensagem=$row[codigo_mensagem]'>Confirmar</a>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        
+                        
+                        </td>";
                             echo "</tr>";
                         }
                         /* Durante os Echo não podemos add aspas duplas dentro de aspas duplas, pois da erro */
