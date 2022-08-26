@@ -17,7 +17,7 @@
                     <div
                         style="background-color:white;border-radius:20px; padding-bottom:10px;  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-width: 12px;">
                         <div class="container mt-3">
-                            <form method="GET" action="controleProduto.php" autocomplete="off" enctype="multipart/form-data">
+                            <form method="POST" action="controleProduto.php" enctype="multipart/form-data">
                                 <h1 style="text-align:center; font-size:25px; padding:15px; color:blue;">
                                     Cadastrar Produto</h1>
                                 <div class="form-floating mb-3 mt-3">
@@ -36,10 +36,10 @@
                                     <label>Cadastrar Valor</label>
                                 </div>
                                 <div style="margin-bottom:10px">
-                                    <input type="file" class="form-control" placeholder="Insira a Imagem"
-                                        name='cadastrarFigura' required>
+                                    <input type="file" class="form-control" placeholder="Insira a Imagem" name='arquivo'
+                                        required>
                                 </div>
-                                    
+
                                 <div class="row m-auto">
                                     <button type="submit" class="btn btn-primary btn-lg btn-block"
                                         style="font-size:16px;" value="cadastrar" name="botao">Cadastrar</button>

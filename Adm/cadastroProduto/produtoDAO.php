@@ -31,43 +31,30 @@ class produtoDAO{
         $this->cadastrarFigura =$f;
     }
 
-    public function getTemp(){
-        return $this->figuraTemp;
-    }
-    public function setTemp($f){
-        $this->figuraTemp =$f;
-    }
-
-    public function getDest(){
-        return $this->dest;
-    }
-    public function setDest($f){
-        $this->dest =$f;
-    }
-
-
     public function cadastrarNvP(){
-        
-        move_uploaded_file($this->figuraTemp, $this->dest);
-        $imagem = file_get_contents("http://localhost/Adm/img". $this.cadastrarFigura);
+        if (!isset($_SESSION)) {//Verificar se a sessão não já está aberta.
+            session_start();
+        }
+        move_uploaded_file($_SESSION['arquivoTemp'],   $_SESSION['destino'] );
+        $imagem = file_get_contents("http://localhost/projetoPRW/Adm/img/". $_SESSION['arquivoAtual'] );
 
         $sql = 'insert into produto (codigo_produto, descricao, valor, foto, imagem) values (?,?,?,?,?)';
-
+        $imgBack = $_SESSION['arquivoAtual'];
         $banco = new conexao();
         $con = $banco->getConexao();
         $resultado = $con->prepare($sql);
         $resultado->bindValue(1, $this->codProduto);
         $resultado->bindValue(2, $this->cadastrarDescricao);
-        $resultado->bindValue(3, $this->cadastrarFigura);
-        $resultado->bindValue(4, $this->cadastrarValor);
+        $resultado->bindValue(3, $this->cadastrarValor);
+        $resultado->bindValue(4, $_SESSION['arquivoAtual'] );
         $resultado->bindValue(5, $imagem);
         $final = $resultado->execute();
 
         if($final){
-            echo "<script LANGUAGE= 'JavaScript'>
-                window.alert('Cadastrado com sucesso');
+        echo "<script LANGUAGE= 'JavaScript'>
+                window.alert('Cadastrado com sucesso ');
                 window.location.href='produto.php';
-                </script>";
+                </script>"; 
         }
     }
     public function deletarNvP(){
@@ -79,7 +66,7 @@ class produtoDAO{
         $final = $resultado->execute();
         if($final){
             echo "<script LANGUAGE='JavaScript'>
-            window.alert('Produto deletado com sucesso');
+            window.alert('Produto deletado com sucesso ');
             window.location.href='produto.php';
             </script>";
         }

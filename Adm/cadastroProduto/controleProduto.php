@@ -1,11 +1,8 @@
 <?php
-$codProduto = filter_input(INPUT_GET,'codProduto');
-$cadastrarDescricao = filter_input(INPUT_GET,'cadastrarDescricao');
-$cadastrarValor = filter_input(INPUT_GET,'cadastrarValor');
-$cadastrarFigura = $_FILES['cadastrarFigura'] ['name'];
-$cadastrarTemp = $_FILES['cadastrarFigura'] ['tmp_name'];
-$destino = '../img/'.$cadastrarFigura;
-$botao =  filter_input(INPUT_GET,'botao');
+$codProduto = filter_input(INPUT_POST,'codProduto');
+$cadastrarDescricao = filter_input(INPUT_POST,'cadastrarDescricao');
+$cadastrarValor = filter_input(INPUT_POST,'cadastrarValor');
+$botao =  filter_input(INPUT_POST,'botao');
 
 include 'produtoDAO.php';
 $novoProduto = new produtoDAO();
@@ -13,14 +10,24 @@ $novoProduto = new produtoDAO();
 $novoProduto->setCodProduto($codProduto);
 $novoProduto->setDescricao($cadastrarDescricao);
 $novoProduto->setValor($cadastrarValor);
-$novoProduto->setFigura($cadastrarFigura);
-$novoProduto->setTemp($cadastrarTemp);
-$novoProduto->setDest($destino);
+
+    if (!isset($_SESSION)) {//Verificar se a sessão não já está aberta.
+        session_start();
+    }
+
+    if(isset($_FILES['arquivo'])){
+        $Atual = $_FILES['arquivo']['name'];
+        $Temp = $_FILES['arquivo']['tmp_name'];
+        $Dest = '../img/'.$Atual;
+        $_SESSION['arquivoAtual']  = $Atual;
+        $_SESSION['arquivoTemp'] =  $Temp;
+        $_SESSION['destino'] = $Dest;
+    }
 
 
 
 if($botao=='cadastrar'){
-        $novoProduto->cadastrarNvP();
+        $novoProduto->cadastrarNvP(); 
     }else if($botao=='deletar'){
         $novoProduto->deletarNvP();
     }
