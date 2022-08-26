@@ -1,7 +1,7 @@
 <?php
 include "../../conexao.php";
 class produtoDAO{
-    private $codProduto, $cadastrarDescricao, $cadastrarValor, $cadastrarFigura;
+    private $codProduto, $cadastrarDescricao, $cadastrarValor, $cadastrarFigura, $figuraTemp, $dest;
 
     public function getCodProduto(){
         return $this->codProduto;
@@ -31,16 +31,36 @@ class produtoDAO{
         $this->cadastrarFigura =$f;
     }
 
+    public function getTemp(){
+        return $this->figuraTemp;
+    }
+    public function setTemp($f){
+        $this->figuraTemp =$f;
+    }
+
+    public function getDest(){
+        return $this->dest;
+    }
+    public function setDest($f){
+        $this->dest =$f;
+    }
+
 
     public function cadastrarNvP(){
-        $sql = 'insert into produto (codigo_produto, descricao, valor) values (?,?,?)';
+        
+        move_uploaded_file($this->figuraTemp, $this->dest);
+        $imagem = file_get_contents("http://localhost/Adm/img". $this.cadastrarFigura);
+
+        $sql = 'insert into produto (codigo_produto, descricao, valor, foto, imagem) values (?,?,?,?,?)';
 
         $banco = new conexao();
         $con = $banco->getConexao();
         $resultado = $con->prepare($sql);
         $resultado->bindValue(1, $this->codProduto);
         $resultado->bindValue(2, $this->cadastrarDescricao);
-        $resultado->bindValue(3, $this->cadastrarValor);
+        $resultado->bindValue(3, $this->cadastrarFigura);
+        $resultado->bindValue(4, $this->cadastrarValor);
+        $resultado->bindValue(5, $imagem);
         $final = $resultado->execute();
 
         if($final){

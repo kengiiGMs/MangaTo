@@ -17,7 +17,7 @@
                     <div
                         style="background-color:white;border-radius:20px; padding-bottom:10px;  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-width: 12px;">
                         <div class="container mt-3">
-                            <form method="GET" action="controleProduto.php" autocomplete="off">
+                            <form method="GET" action="controleProduto.php" autocomplete="off" enctype="multipart/form-data">
                                 <h1 style="text-align:center; font-size:25px; padding:15px; color:blue;">
                                     Cadastrar Produto</h1>
                                 <div class="form-floating mb-3 mt-3">
@@ -35,11 +35,11 @@
                                         name='cadastrarValor' required>
                                     <label>Cadastrar Valor</label>
                                 </div>
-                                <!--   <div class="form-floating mt-3 mb-3">
-                                    <input type="password" class="form-control" placeholder="Insira a Imagem"
+                                <div style="margin-bottom:10px">
+                                    <input type="file" class="form-control" placeholder="Insira a Imagem"
                                         name='cadastrarFigura' required>
-                                    <label>Insira a Imagem</label>
-                                </div> -->
+                                </div>
+                                    
                                 <div class="row m-auto">
                                     <button type="submit" class="btn btn-primary btn-lg btn-block"
                                         style="font-size:16px;" value="cadastrar" name="botao">Cadastrar</button>
@@ -58,7 +58,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Apagar Produto</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>

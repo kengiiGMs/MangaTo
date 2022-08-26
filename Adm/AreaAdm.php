@@ -38,6 +38,59 @@
             </div>
         </nav>
     </header>
+    <div class="container" style="margin-top:20px">
+        <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Produto</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Perfil</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="mensagen-tab" data-bs-toggle="tab" data-bs-target="#mensagem-tab-pane" type="button" role="tab" aria-controls="mensagem-tab-pane" aria-selected="false">Mensagens</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                <div class="container">
+                    <h5 style="text-align:center; margin-top:20px">Informações sobre os Produto</h5>
+                    <div class="container"> 
+                        <div class="card" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text" style="text-align:center">Quantidade de Produtos</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <div class="container">
+                    <h5 style="text-align:center; margin-top:20px">Informações sobre os Perfils</h5>
+                    <div class="container">
+                        <div class="card" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text" style="text-align:center">Quantidades de Perfils</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="tab-pane fade" id="mensagem-tab-pane" role="tabpanel" aria-labelledby="mensagem-tab" tabindex="0">
+                <div class="container">
+                    <h5 style="text-align:center; margin-top:20px">Informações sobre as Mensagens</h5>
+                    <div class="container">
+                        <div class="card" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text" style="text-align:center">Quantidade de Mensagens</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
