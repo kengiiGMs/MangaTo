@@ -42,8 +42,8 @@
                 <H1 id="tituloPrincipalHome">Seja Bem-Vindo!!!</H1>
                 <div class="col">
                     <div class="d-grid">
-                        <button type="button" class="btn btn-outline blue btn-block" id="faleConosco"
-                            onclick="window.location.href=''">
+                        <button type="button" class="btn btn-outline blue btn-block" id="noticias"
+                            onclick="window.location.href='Site/pages/noticias.php'">
                             Noticias
                         </button>
                     </div>
@@ -51,7 +51,7 @@
                 <div class="col">
                     <div class="d-grid">
                         <button type="button" class="btn btn-outline blue btn-block" id="mangas"
-                            onclick="window.location.href=''">
+                            onclick="window.location.href='Site/pages/manga.php'">
                             Ler Mangás
                         </button>
                     </div>
@@ -59,7 +59,7 @@
                 <div class="col">
                     <div class="d-grid">
                         <button type="button" class="btn btn-outline blue btn-block" id="loja"
-                            onclick="window.location.href=''">
+                            onclick="window.location.href='Site/pages/loja.php'">
                             Loja
                         </button>
                     </div>
