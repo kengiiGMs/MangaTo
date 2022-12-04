@@ -1,0 +1,18 @@
+{
+	"name": "vendorname/miniframeworrk",
+	"require": {
+		"php": ">=8.0"
+	},
+	"authors": [
+		{
+			"name": "Kaiki Kenji Fukumoto Aoto",
+			"email": "kaikiaoto22@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"App\\": "App/",
+			"MF\\": "vendor/MF/"
+		}
+	}
+}
