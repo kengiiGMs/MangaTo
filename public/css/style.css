@@ -6,6 +6,12 @@
 	--primaryColor: #3784e9;
 }
 
+.tituloFormat {
+	text-align: center;
+	padding: 1rem;
+	color: var(--teste3);
+}
+
 /* header */
 
 .linkMenu {
@@ -57,7 +63,6 @@
 		opacity: 1;
 	}
 }
-
 /* Animation */
 
 /*Home*/
@@ -106,7 +111,11 @@
 
 /* Animation */
 /* buttons */
-
+@media (max-width: 991px) {
+	#personagemCol {
+		display: none;
+	}
+}
 .personagemCadastrarPerfil {
 	display: flex;
 	justify-content: end;
@@ -119,13 +128,8 @@
 	border-radius: 5px;
 }
 
-.formCadastrarPerfil {
+.formRegistrarPerfil {
 	justify-content: end;
 	align-items: center;
 	flex-direction: column;
-}
-#tituloCadastrarPerfil {
-	text-align: center;
-	padding: 1rem;
-	color: var(--teste3);
 }

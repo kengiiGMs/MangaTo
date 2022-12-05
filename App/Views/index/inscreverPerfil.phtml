@@ -1,0 +1,65 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-5" id="personagemCol">
+            <div class="personagemCadastrarPerfil">
+                <img src="img/personagens/aqua3Back.jpg" alt="Aqua">
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <h2 class="tituloFormat">Cadastrar Perfil</h2>
+            <div class="formRegistrarPerfil">
+
+                <form action="/registrarPerfil" method="POST">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" value="<?= $this->view->usuario['nome'] ?>"
+                            name="nomeRegistrarPerfil" id="nomeRegistrarPerfil" placeholder="nome">
+                        <label for="nomeRegistrarPerfil">Digite o seu nome</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" value="<?= $this->view->usuario['email'] ?>"
+                            name="emailRegistrarPerfil" id="emailRegistrarPerfil" placeholder="email">
+                        <label for="RegistrarPerfil">Digite o seu E-mail</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" value="<?= $this->view->usuario['senha'] ?>"
+                            name="senhaRegistrarPerfil" id="senhaRegistrarPerfil" placeholder="senha">
+                        <label for="senhaRegistrarPerfil">Digite a sua Senha</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" name="senhaConfirmaRegistrarPerfil"
+                            value="<?= $this->view->usuario['senhaConfirma'] ?>" id="senhaConfirmaRegistrarPerfil"
+                            placeholder="senha repita">
+                        <label for="senhaConfirmaRegistrarPerfil">Repita a sua Senha</label>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-outline blue btn-block">Cadastrar</button>
+
+                        <?php if($this->view->erroCadastro){?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            Erro ao tentar Realizar o Cadastro, Verifique se os Campos
+                            foram Preenchidos Corretamente.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <?php
+                        }
+                        ?>
+
+                        <?php if($this->view->erroEmail){?>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            Erro ao tentar Realizar o Cadastro, Erro Este Email já está cadastrado.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <?php
+                        }
+                        ?>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

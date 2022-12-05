@@ -12,10 +12,15 @@ class Route extends Bootstrap {
             'controller' => 'indexController',
             'action' => 'index'
         );
-        $routes['cadastrarPerfil'] = array(
-            'route' => '/cadastrarPerfil',
+        $routes['inscreverPerfil'] = array(
+            'route' => '/inscreverPerfil',
             'controller' => 'indexController',
-            'action' => 'cadastrarPerfil'
+            'action' => 'inscreverPerfil'
+        );
+        $routes['registrarPerfil'] = array(
+            'route' => '/registrarPerfil',
+            'controller' => 'indexController',
+            'action' => 'registrarPerfil'
         );
 
         $this->setRoutes($routes);
