@@ -28,8 +28,8 @@ class Comentario extends Model{
     }
 
     public function getAll(){
-        $query = "SELECT c.id_comentario, c.id_usuario, u.nome_usuario ,c.comentario, DATE_FORMAT(c.data_comentario, '%d/%m/%Y %H:%i') as data FROM comentarios as c 
-        LEFT JOIN usuarios as u on(c.id_usuario = u.id_usuario)WHERE c.id_usuario = :id_usuario ORDER BY c.data_comentario DESC";
+        $query = "SELECT c.id, c.id_usuario, u.nome ,c.comentario, DATE_FORMAT(c.data_comentario, '%d/%m/%Y %H:%i') as data FROM comentarios as c 
+        LEFT JOIN usuarios as u on(c.id_usuario = u.id)WHERE c.id_usuario = :id_usuario ORDER BY c.data_comentario DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
         $stmt->execute();

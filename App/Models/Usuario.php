@@ -32,7 +32,7 @@ class Usuario extends Model{
             $valido = false;
         }
         if(strlen($this->__get('senha')) == strlen($this->__get('senhaConfirma')) ){
-           
+        
         }else{
             $valido = false;
         }
@@ -41,7 +41,7 @@ class Usuario extends Model{
     }
 
     public function salvar(){
-        $query = "INSERT INTO usuarios(nome_usuario, email_usuario, senha_usuario) VALUES(:nome, :email, :senha)";
+        $query = "INSERT INTO usuarios(nome, email, senha) VALUES(:nome, :email, :senha)";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':nome', $this->__get('nome'));
         $stmt->bindValue(':email', $this->__get('email'));
@@ -52,7 +52,7 @@ class Usuario extends Model{
     }
 
     public function getUsuarioPorEmail(){
-        $query = "SELECT nome_usuario, email_usuario FROM usuarios WHERE email_usuario = :email";
+        $query = "SELECT nome, email FROM usuarios WHERE email = :email";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':email', $this->__get('email'));
         $stmt->execute();
@@ -61,7 +61,7 @@ class Usuario extends Model{
     }
 
     public function autenticar(){
-        $query = "SELECT id_usuario, nome_usuario, email_usuario FROM usuarios WHERE email_usuario = :email AND senha_usuario = :senha";
+        $query = "SELECT id, nome, email FROM usuarios WHERE email = :email AND senha = :senha";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':email', $this->__get('email'));
         $stmt->bindValue(':senha', $this->__get('senha'));
@@ -69,14 +69,24 @@ class Usuario extends Model{
 
         $usuario = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        if($usuario['id_usuario'] != '' && $usuario['nome_usuario'] != ''){
-            $this->__set('id', $usuario['id_usuario']);
-            $this->__set('nome', $usuario['nome_usuario']);
+        if($usuario['id'] != '' && $usuario['nome'] != ''){
+            $this->__set('id', $usuario['id']);
+            $this->__set('nome', $usuario['nome']);
             
         }
 
         return $this;
 
+    }
+
+    public function getAll(){
+        $query = "SELECT id, nome, email FROM usuarios WHERE nome LIKE :nome AND id != :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':nome', '%'.$this->__get('nome').'%');
+        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
 }

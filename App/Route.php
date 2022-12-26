@@ -38,10 +38,15 @@ class Route extends Bootstrap {
             'action' => 'sair'
         );
         
-         $routes['comentario'] = array(
+        $routes['comentario'] = array(
             'route' => '/comentario',
             'controller' => 'AppController',
             'action' => 'comentario'
+        );
+        $routes['quem_seguir'] = array(
+            'route' => '/quemSeguir',
+            'controller' => 'AppController',
+            'action' => 'quemSeguir'
         );
         
 

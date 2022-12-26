@@ -54,12 +54,12 @@
                 </div>
             </div>
 
-            <?php foreach($this->view->comentarios as $id_comentario => $comentario){?>
+            <?php foreach($this->view->comentarios as $id => $comentario){?>
             <div class="row comentario">
                 <div class="col">
                     <p>
                         <strong>
-                            <?=$comentario['nome_usuario']?>
+                            <?=$comentario['nome']?>
                         </strong>
                         <small>
                             <span class="text text-muted">
@@ -90,7 +90,7 @@
             <div class="quemSeguir">
                 <span class="quemSeguirTitulo">Quem seguir</span><br />
                 <hr />
-                <a href="#" class="quemSeguirTxt">Procurar por pessoas conhecidas</a>
+                <a href="/quemSeguir" class="quemSeguirTxt">Procurar por pessoas conhecidas</a>
             </div>
         </div>
 
