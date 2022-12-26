@@ -31,3 +31,33 @@
         </div>
     </div>
 </div>
+<div class="container-fluid">
+
+    <form action="/autenticar" class="row g-2" style="justify-content:center" method="POST">
+        <div class="col-auto">
+            <h2 class="tituloFormat">Efetuar Login</h2>
+        </div>
+        <div class="col-auto inputsHome">
+            <input type="text" class="form-control" name="emailAutenticar" id="emailAutenticar"
+                placeholder="Insira o seu Email">
+        </div>
+        <div class="col-auto inputsHome">
+            <input type="password" class="form-control" name="senhaAutenticar" id="senhaAutenticar"
+                placeholder="Digite a sua Senha">
+        </div>
+        <div class="col-auto inputsHome">
+            <button type="submit" class="btn btn-outline blue btn-block">Entrar</button>
+        </div>
+        <?php if($this->view->login == 'erro') {?>
+        <div class=" container">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Email ou Senha Inválido(s)
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+        <?php
+        }?>
+
+    </form>
+
+</div>

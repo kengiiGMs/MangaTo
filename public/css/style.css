@@ -30,7 +30,7 @@
 
 /* header */
 
-/*Home*/
+/*Index*/
 #containerPrincipalBTN {
 	background-image: url(../img/backgrounds/logoBackground.jpg);
 	margin: 0;
@@ -47,6 +47,12 @@
 	margin-bottom: 20px;
 	animation-name: h1BottomCenter;
 	animation-duration: 2s;
+	font-size: 2rem;
+}
+
+.inputsHome {
+	display: flex;
+	align-items: center;
 }
 
 /* Animation */
@@ -65,7 +71,7 @@
 }
 /* Animation */
 
-/*Home*/
+/*Index*/
 
 /* PersonagemHome */
 #vivi {
@@ -133,3 +139,94 @@
 	align-items: center;
 	flex-direction: column;
 }
+
+/* timeline */
+
+.perfil {
+	border: 1px solid #e6ecf0;
+	background: #fff;
+	position: relative;
+	margin-bottom: 10px;
+	display: block;
+	width: 100%;
+}
+
+.perfilTopo {
+	height: 95px;
+	background-color: var(--teste3);
+}
+
+.perfilPainel {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.perfilPainelNome {
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 25px;
+}
+
+.perfilPainelItem {
+	color: #657786;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 0.02em;
+	line-height: 16px;
+	overflow: hidden;
+	transition: color 0.15s ease-in-out;
+}
+
+.perfilPainelItemValor {
+	display: block;
+	font-size: 18px;
+	font-weight: bold;
+	padding-top: 3px;
+	transition: color 0.15s;
+	color: var(--teste3) !important;
+}
+
+.comentarioBox {
+	border-top-left-radius: inherit;
+	border-top-right-radius: inherit;
+	border: 1px solid #e6ecf0;
+	background-color: #e8f5fd;
+	padding: 25px;
+}
+
+.quemSeguir {
+	border: 1px solid #e6ecf0;
+	background: #fff;
+	position: relative;
+	margin-bottom: 10px;
+	display: block;
+	width: 100%;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+.quemSeguirTitulo {
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 25px;
+}
+
+.quemSeguirTxt,
+.quemSeguirTxt:hover {
+	color: #1da1f2;
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.comentario {
+	padding: 15px;
+	border-bottom: 1px solid #e6ecf0;
+	cursor: pointer;
+}
+
+.comentario:hover {
+	background-color: #f5f8fa;
+}
+/* timeline */

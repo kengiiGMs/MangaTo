@@ -31,7 +31,9 @@ class Usuario extends Model{
         if(strlen($this->__get('senha')) <3){
             $valido = false;
         }
-        if(strlen($this->__get('senha')) != strlen($this->__get('senhaConfirma')) ){
+        if(strlen($this->__get('senha')) == strlen($this->__get('senhaConfirma')) ){
+           
+        }else{
             $valido = false;
         }
 
@@ -56,6 +58,25 @@ class Usuario extends Model{
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function autenticar(){
+        $query = "SELECT id_usuario, nome_usuario, email_usuario FROM usuarios WHERE email_usuario = :email AND senha_usuario = :senha";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':email', $this->__get('email'));
+        $stmt->bindValue(':senha', $this->__get('senha'));
+        $stmt->execute();
+
+        $usuario = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if($usuario['id_usuario'] != '' && $usuario['nome_usuario'] != ''){
+            $this->__set('id', $usuario['id_usuario']);
+            $this->__set('nome', $usuario['nome_usuario']);
+            
+        }
+
+        return $this;
+
     }
 
 }

@@ -7,6 +7,7 @@ use MF\Model\Container;
 class IndexController extends Action{
 
     public function index(){
+        $this->view->login = isset($_GET['login']) ? $_GET['login'] : '';
         $this->render('index');
     }
 
@@ -33,7 +34,7 @@ class IndexController extends Action{
         $usuario->__set('senhaConfirma', $_POST['senhaConfirmaRegistrarPerfil']);
         
         if($usuario->validarCadastro()){
-
+            $usuario->__set('senha', md5($_POST['senhaRegistrarPerfil']));
             if (count($usuario-> getUsuarioPorEmail()) == 0){
                 $usuario->salvar();
                 $this->render('cadastroSucesso');
