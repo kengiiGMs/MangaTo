@@ -8,6 +8,14 @@ email_usuario varchar(90) not null,
 senha_usuario varchar(32) not null
 );
 
+create table comentarios(
+id_comentario int not null primary key auto_increment,
+id_usuario int not null,
+comentario varchar(140) not null,
+data_comentario datetime default current_timestamp
+);
+
 select * from usuarios;
+select * from comentarios;
 TRUNCATE usuarios;
 drop database mangaTo;

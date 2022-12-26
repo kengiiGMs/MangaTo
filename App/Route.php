@@ -38,6 +38,12 @@ class Route extends Bootstrap {
             'action' => 'sair'
         );
         
+         $routes['comentario'] = array(
+            'route' => '/comentario',
+            'controller' => 'AppController',
+            'action' => 'comentario'
+        );
+        
 
         $this->setRoutes($routes);
     }
