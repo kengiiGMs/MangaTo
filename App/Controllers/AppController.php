@@ -8,10 +8,19 @@ class AppController extends Action{
 
     public function timeline(){
         $this->validaAutenticacao();
+
         $comentario = Container::getModel('Comentario');
         $comentario->__set('id_usuario', $_SESSION['id']);
         $comentarios = $comentario->getAll();
         $this->view->comentarios = $comentarios;
+
+        $usuario = Container::getModel('Usuario');
+        $usuario->__set('id', $_SESSION['id']);
+        $this->view->info_usuario = $usuario->getInfoUsuario();
+        $this->view->total_comentarios = $usuario->getTotalComentarios();
+        $this->view->total_seguindo = $usuario->getTotalSeguindo();
+        $this->view->total_seguidores = $usuario-> getTotalSeguidores();
+
         $this->render('timeline');
 
     }
@@ -25,7 +34,7 @@ class AppController extends Action{
         
     }
 
-     public function removerComentario(){
+    public function removerComentario(){
         $this->validaAutenticacao();
         $comentario= Container::getModel('Comentario');
         $comentario->__set('id', $_GET['id']);
@@ -47,6 +56,14 @@ class AppController extends Action{
     public function quemSeguir(){
         $this->validaAutenticacao();
         $pesquisarPor = isset($_GET['pesquisarPor']) ? $_GET['pesquisarPor'] : '';
+
+        $usuario = Container::getModel('Usuario');
+        $usuario->__set('id', $_SESSION['id']);
+        $this->view->info_usuario = $usuario->getInfoUsuario();
+        $this->view->total_comentarios = $usuario->getTotalComentarios();
+        $this->view->total_seguindo = $usuario->getTotalSeguindo();
+        $this->view->total_seguidores = $usuario-> getTotalSeguidores();
+
         
         $usuarios = array();
         if($pesquisarPor != ''){
