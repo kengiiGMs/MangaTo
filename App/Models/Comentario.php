@@ -29,12 +29,24 @@ class Comentario extends Model{
 
     public function getAll(){
         $query = "SELECT c.id, c.id_usuario, u.nome ,c.comentario, DATE_FORMAT(c.data_comentario, '%d/%m/%Y %H:%i') as data FROM comentarios as c 
-        LEFT JOIN usuarios as u on(c.id_usuario = u.id)WHERE c.id_usuario = :id_usuario ORDER BY c.data_comentario DESC";
+        LEFT JOIN usuarios as u on(c.id_usuario = u.id)WHERE c.id_usuario = :id_usuario 
+        or c.id_usuario in (SELECT id_usuario_seguindo FROM usuarios_seguidores WHERE id_usuario = :id_usuario) ORDER BY c.data_comentario DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function remover(){
+        $query = "DELETE FROM comentarios WHERE id = :id
+        AND id_usuario = :id_usuario";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+        $stmt->execute();
+
+        return true;
     }
 }
 

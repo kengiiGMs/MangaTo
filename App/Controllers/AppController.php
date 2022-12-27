@@ -25,6 +25,16 @@ class AppController extends Action{
         
     }
 
+     public function removerComentario(){
+        $this->validaAutenticacao();
+        $comentario= Container::getModel('Comentario');
+        $comentario->__set('id', $_GET['id']);
+        $comentario->__set('id_usuario', $_SESSION['id']);
+        $comentario->remover();
+        header('Location: /timeline');
+
+    }
+
     public function validaAutenticacao(){
         session_start();
         if(!isset($_SESSION['id']) || $_SESSION['id'] == '' || !isset($_SESSION['nome']) || $_SESSION['nome'] == ''){

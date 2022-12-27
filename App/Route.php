@@ -43,6 +43,11 @@ class Route extends Bootstrap {
             'controller' => 'AppController',
             'action' => 'comentario'
         );
+        $routes['removerComentario'] = array(
+            'route' => '/removerComentario',
+            'controller' => 'AppController',
+            'action' => 'removerComentario'
+        );
         $routes['quem_seguir'] = array(
             'route' => '/quemSeguir',
             'controller' => 'AppController',
