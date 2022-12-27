@@ -6,6 +6,10 @@
 	--primaryColor: #3784e9;
 }
 
+a {
+	text-decoration: none;
+}
+
 .tituloFormat {
 	text-align: center;
 	padding: 1rem;
@@ -141,6 +145,20 @@
 }
 
 /* timeline */
+.voltarLink {
+	text-align: start;
+	margin: 2em;
+}
+
+.voltarLink a {
+	font-size: 1.4em;
+	color: var(--primaryColor);
+	transition: 0.4s;
+}
+
+.voltarLink a:hover {
+	color: var(--teste3);
+}
 
 .perfil {
 	border: 1px solid #e6ecf0;

@@ -1,7 +1,14 @@
 <div class="container mt-5">
-    <div class="row pt-2">
+    <div class="row">
+        <div class="col align-self-start col-md-3">
+            <div class="voltarLink">
+                <a href="/timeline">Voltar</a>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-evenly">
 
-        <div class="col-md-3">
+        <div class="col-md-6">
 
             <div class="perfil">
                 <div class="perfilTopo">
@@ -40,7 +47,7 @@
 
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-5">
 
             <div class="row mb-2">
                 <div class="col">
@@ -73,8 +80,15 @@
 
                                 <div class="col-md-6 d-flex justify-content-end">
                                     <div>
-                                        <a href="#" class="btn btn-success">Seguir</a>
-                                        <a href="#" class="btn btn-danger">Deixar de seguir</a>
+                                        <?php if($usuario['seguindo_sn'] == 0) { ?>
+                                        <a href="/acao?acao=seguir&id_usuario=<?=$usuario['id']?>"
+                                            class="btn btn-success">Seguir</a>
+                                        <?php       }?>
+
+                                        <?php if($usuario['seguindo_sn'] == 1) { ?>
+                                        <a href="/acao?acao=deixar&id_usuario=<?=$usuario['id']?>"
+                                            class="btn btn-danger">Deixar de seguir</a>
+                                        <?php       }?>
                                     </div>
                                 </div>
                             </div>

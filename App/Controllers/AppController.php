@@ -51,5 +51,21 @@ class AppController extends Action{
         $this->render('quemSeguir');
     }
 
+        public function acao(){
+            $this->validaAutenticacao();
+            $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
+            $id_usuario_seguindo = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : '';
+            $acaoUsuario = Container::getModel('AcaoUsuario');
+            $acaoUsuario->__set('id', $_SESSION['id']);
+
+            if($acao == 'seguir'){
+                $acaoUsuario->seguirUsuario($id_usuario_seguindo);
+            }else if ($acao == 'deixar'){
+                $acaoUsuario->deixarSeguirUsuario($id_usuario_seguindo);
+            }
+
+            header('Location: /quemSeguir');
+        }
+
 }
     ?>

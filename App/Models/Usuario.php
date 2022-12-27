@@ -80,7 +80,7 @@ class Usuario extends Model{
     }
 
     public function getAll(){
-        $query = "SELECT id, nome, email FROM usuarios WHERE nome LIKE :nome AND id != :id";
+        $query = "SELECT u.id, u.nome, u.email, ( SELECT COUNT(*) FROM usuarios_seguidores as us WHERE us.id_usuario = :id AND us.id_usuario_seguindo = u.id) AS seguindo_sn FROM usuarios as u WHERE u.nome LIKE :nome AND u.id != :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':nome', '%'.$this->__get('nome').'%');
         $stmt->bindValue(':id', $this->__get('id'));
