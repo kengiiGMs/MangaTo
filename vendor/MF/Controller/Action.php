@@ -24,6 +24,26 @@ abstract class Action {
 
         require_once "../App/Views/".$classeAtual."/".$this->view->page.".phtml";
     }
+    protected function title(){
+        $tituloAtual = $_SERVER['REQUEST_URI'];
+        
+        $titulos = [
+            '/' => 'MangaTo | Home',
+            '/inscreverPerfil' => 'MangaTo | Inscrever-se',
+            '/registrarPerfil' => 'MangaTo | Registrando Perfil',
+            '/autenticar' => 'MangaTo | Efetuando Login',
+            '/timeline' => 'MangaTo | TimeLine',
+            '/sair' => 'MangaTo | Deslogando...',
+            '/comentario' => 'MangaTo | Comentando...',
+            '/acao'=> 'MangaTo | Carregando...',
+            '/removerComentario' => 'MangaTo | Removendo o Comentario...',
+            '/quemSeguir' => 'MangaTo | Quem Seguir?',
+        ];
+
+        return $titulos[$tituloAtual];
+    }
+
+
 }
 
 
