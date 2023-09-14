@@ -1,0 +1,16 @@
+{
+  "name": "mangato",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">MangaTO</h1>",
+  "main": "index.js",
+  "scripts": {
+    "start": "tailwindcss -i ./src/style.css -o ./dist/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.15",
+    "tailwindcss": "^3.3.3"
+  }
+}
